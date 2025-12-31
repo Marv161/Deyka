@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deyka Motors | Concesionaria de Lujo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f9e29d;
+            --dark: #0a0a0a;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: white;
+            font-family: 'Playfair Display', serif;
+            overflow: hidden; /* Garantiza que no haya scroll */
+            background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .luxury-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--gold);
+            text-shadow: 
+                0 1px 0 #ccc, 
+                0 2px 0 #c9c9c9, 
+                0 4px 10px rgba(0,0,0,0.3);
+            background: linear-gradient(to bottom, #f9e29d 22%, #d4af37 45%, #b38b2d 50%, #d4af37 55%, #f9e29d 78%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+        }
+
+        .manager-frame {
+            border: 2px solid var(--gold);
+            padding: 8px;
+            background: linear-gradient(45deg, #0f0f0f, #222);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8), inset 0 0 15px rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        .manager-label {
+            font-family: 'Cinzel', serif;
+            background: var(--gold);
+            color: black;
+            padding: 3px 22px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            margin-top: -12px;
+            z-index: 10;
+        }
+
+        .car-container {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .masterpiece-glow {
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.25));
+        }
+
+        .car-reflection::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+        }
+
+        .glow-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col items-center justify-between py-6 px-10">
+
+    <div class="glow-overlay"></div>
+
+    <!-- Título Principal -->
+    <header class="text-center">
+        <h1 class="luxury-title text-4xl md:text-6xl">Deyka Motors</h1>
+        <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mt-2"></div>
+    </header>
+
+    <!-- Layout de Presentación Principal -->
+    <main class="w-full max-w-7xl flex-1 flex flex-col justify-center space-y-8">
+        
+        <!-- Fila de Manager y laterales -->
+        <div class="grid grid-cols-3 gap-12 items-center">
+            
+            <!-- Auto Izquierda (Tamaño optimizado) -->
+            <div class="car-container flex flex-col items-center opacity-90 hover:opacity-100">
+                <div class="car-reflection">
+                    <img src="https://i.ibb.co/G3WnSN6H/deyka1.png" alt="Exotic Edition I" class="max-h-36 md:max-h-48 w-auto object-contain drop-shadow-2xl">
+                </div>
+                <p class="mt-2 text-[10px] tracking-[0.3em] text-gray-500 uppercase font-medium">Exotic Series I</p>
+            </div>
+
+            <!-- Centro: Manager (Protagonismo mantenido sin pixelar) -->
+            <div class="flex flex-col items-center z-20">
+                <div class="manager-frame">
+                    <img src="https://i.ibb.co/60gVx4n5/215a44c913f6102e2e3c12fca8261d35.jpg" alt="Manager" class="w-48 h-64 md:w-56 md:h-72 object-cover border border-white/5">
+                </div>
+                <div class="manager-label uppercase">Manager</div>
+            </div>
+
+            <!-- Auto Derecha (Tamaño optimizado) -->
+            <div class="car-container flex flex-col items-center opacity-90 hover:opacity-100">
+                <div class="car-reflection">
+                    <img src="https://i.ibb.co/mF45TLnh/deyka3.png" alt="Prestige Series III" class="max-h-36 md:max-h-48 w-auto object-contain drop-shadow-2xl">
+                </div>
+                <p class="mt-2 text-[10px] tracking-[0.3em] text-gray-500 uppercase font-medium">Prestige Series III</p>
+            </div>
+        </div>
+
+        <!-- Fila de La Pieza Maestra (Protagonista absoluto) -->
+        <div class="flex flex-col items-center pt-4">
+            <div class="car-container masterpiece-glow max-w-2xl md:max-w-3xl w-full">
+                <div class="car-reflection flex flex-col items-center">
+                    <img src="https://i.ibb.co/svw3BvRB/deyka2.png" alt="The Masterpiece II" class="w-full h-auto max-h-52 md:max-h-64 object-contain drop-shadow-[0_20px_25px_rgba(0,0,0,0.7)]">
+                    <div class="mt-3 text-center">
+                        <span class="text-xs tracking-[0.5em] text-[#d4af37] font-black uppercase">The Masterpiece II</span>
+                        <div class="w-full h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/60 to-transparent mt-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Elegante -->
+    <footer class="text-center w-full pb-2">
+        <div class="flex justify-center space-x-8 text-[10px] tracking-[0.3em] text-gray-500 uppercase">
+            <span>Privacidad</span>
+            <span class="text-[#d4af37]">●</span>
+            <span>Concierge</span>
+            <span class="text-[#d4af37]">●</span>
+            <span>Contacto</span>
+        </div>
+        <p class="mt-2 text-[9px] text-gray-700 uppercase tracking-widest italic opacity-60">"Elegance is the only beauty that never fades"</p>
+    </footer>
+
+</body>
+</html>
